@@ -1,13 +1,15 @@
 :root {
-  --color-primary: #1e3370;
-  --color-primary-soft: #5365a8;
-  --color-bg: #f5f7fb;
-  --color-card: #ffffff;
-  --color-text: #1f2937;
-  --color-muted: #6b7280;
-  --color-border: #e5e7eb;
+  --color-primary: #1478f2;
+  --color-primary-soft: #4da3ff;
+
+  --color-bg: #0f141a;
+  --color-card: #151b22;
+  --color-text: #f8fafc;
+  --color-muted: #a7adb7;
+  --color-border: #2a323d;
+
   --radius-lg: 18px;
-  --shadow-sm: 0 8px 20px rgba(15, 23, 42, 0.08);
+  --shadow-sm: 0 8px 24px rgba(0, 0, 0, 0.28);
 }
 
 * {
@@ -1013,5 +1015,528 @@ input:disabled {
   .admin-overview-card {
     grid-template-columns: 1fr auto;
     align-items: start;
+  }
+}
+
+.demo-banner {
+  background: #fef3c7;
+  color: #92400e;
+  padding: 10px 16px;
+  text-align: center;
+  font-size: 0.85rem;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.demo-banner strong {
+  font-weight: 900;
+}
+
+.small-note {
+  font-size: 0.85rem;
+  color: var(--color-muted);
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
+.qa-grid {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.qa-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+  display: grid;
+  gap: 10px;
+}
+
+.qa-checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: var(--color-muted);
+  line-height: 1.5;
+}
+
+.qa-checklist span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ecfdf5;
+  color: #047857;
+  border-radius: 999px;
+  min-width: 22px;
+  height: 22px;
+  font-weight: 900;
+}
+
+@media (min-width: 800px) {
+  .qa-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ================================
+   DARK MODE COLOUR OVERRIDES ONLY
+   Keeps current layout and styling
+   ================================ */
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+h1,
+h2,
+h3,
+strong,
+label {
+  color: var(--color-text);
+}
+
+p {
+  color: var(--color-muted);
+}
+
+a {
+  color: inherit;
+}
+
+/* Main surfaces */
+.card,
+.hero,
+.auth-page,
+.search-panel,
+.filter-panel,
+.empty-state,
+.category-card,
+.conversation-list,
+.chat-panel {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+
+/* Text inside cards */
+.card p,
+.category-card p,
+.empty-state p,
+.auth-page p,
+.hero p,
+.page-header p,
+.provider-name,
+.provider-description,
+.booking-details-grid p,
+.booking-description p,
+.chat-header p,
+.conversation-item small,
+.review-card-header span,
+.review-card small,
+.muted-text,
+.small-note {
+  color: var(--color-muted);
+}
+
+/* Inputs */
+input,
+select,
+textarea {
+  background: #101820;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #7f8794;
+}
+
+input:disabled {
+  background: #1b232d;
+  color: var(--color-muted);
+}
+
+/* Buttons */
+.btn-primary {
+  background: var(--color-primary);
+  color: white;
+}
+
+.btn-secondary {
+  background: #1c2530;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+.logout-button {
+  background: #1c2530;
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+}
+
+/* Bottom navigation */
+.bottom-nav {
+  background: #10151b;
+  border-top: 1px solid var(--color-border);
+}
+
+.bottom-nav-link {
+  color: var(--color-muted);
+}
+
+.bottom-nav-link.active {
+  color: var(--color-primary);
+}
+
+/* Links and small headings */
+.eyebrow,
+.provider-category,
+.section-header a {
+  color: var(--color-primary-soft);
+}
+
+/* Category/provider meta chips */
+.provider-meta span,
+.portfolio-item,
+.conversation-item,
+.other-message,
+.verification-note {
+  background: #1c2530;
+  color: var(--color-muted);
+  border-color: var(--color-border);
+}
+
+/* Active conversation */
+.conversation-item.active {
+  background: rgba(20, 120, 242, 0.14);
+  border-color: var(--color-primary);
+}
+
+/* Message bubbles */
+.own-message {
+  background: var(--color-primary);
+  color: white;
+}
+
+.own-message span {
+  color: #dbeafe;
+}
+
+.other-message {
+  color: var(--color-text);
+}
+
+/* Booking/card dividers */
+.booking-description,
+.chat-header,
+.message-form {
+  border-color: var(--color-border);
+}
+
+/* Status badges */
+.status-pending {
+  background: rgba(245, 158, 11, 0.14);
+  color: #fbbf24;
+}
+
+.status-accepted {
+  background: rgba(20, 120, 242, 0.16);
+  color: #60a5fa;
+}
+
+.status-completed {
+  background: rgba(20, 120, 242, 0.16);
+  color: #60a5fa;
+}
+
+.status-declined {
+  background: rgba(239, 68, 68, 0.16);
+  color: #f87171;
+}
+
+/* Verification badges */
+.verified-badge,
+.verification-status.verified,
+.role-provider,
+.role-customer,
+.review-submitted-label {
+  background: rgba(20, 120, 242, 0.16);
+  color: #60a5fa;
+}
+
+.unverified-badge,
+.verification-status.unverified {
+  background: rgba(239, 68, 68, 0.16);
+  color: #f87171;
+}
+
+.verification-status.pending,
+.role-admin {
+  background: rgba(245, 158, 11, 0.14);
+  color: #fbbf24;
+}
+
+/* Success and demo banners */
+.success-banner {
+  background: rgba(20, 120, 242, 0.14);
+  color: var(--color-text);
+  border: 1px solid rgba(20, 120, 242, 0.35);
+}
+
+.demo-banner {
+  background: #111820;
+  color: var(--color-muted);
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Form errors */
+.form-error {
+  color: #f87171;
+}
+
+/* Tags and editable items */
+.editable-tag {
+  background: rgba(20, 120, 242, 0.14);
+  color: #60a5fa;
+}
+
+.editable-tag button {
+  color: #60a5fa;
+}
+
+.editable-portfolio-item button {
+  color: #f87171;
+}
+
+/* Admin/user cards */
+.admin-user-card p {
+  color: var(--color-muted);
+}
+
+/* QA checklist */
+.qa-checklist li {
+  color: var(--color-muted);
+}
+
+.qa-checklist span {
+  background: rgba(20, 120, 242, 0.16);
+  color: #60a5fa;
+}
+
+/* Sticky action area */
+.sticky-action {
+  background: rgba(15, 20, 26, 0.95);
+  backdrop-filter: blur(8px);
+}
+
+/* =========================================
+   SPLASH / ONBOARDING / AUTH SCREEN STYLES
+   ========================================= */
+
+.servenear-logo {
+  background: white;
+  border-radius: 8px;
+  padding: 12px 18px;
+  text-align: center;
+  width: fit-content;
+  min-width: 260px;
+}
+
+.servenear-logo h1 {
+  color: #0d7df2;
+  font-size: 3rem;
+  line-height: 0.85;
+  font-weight: 900;
+  letter-spacing: -0.08em;
+  margin: 0;
+}
+
+.servenear-logo p {
+  color: #0d7df2;
+  font-size: 0.7rem;
+  font-weight: 800;
+  margin: 6px 0 0;
+}
+
+.servenear-logo-medium {
+  min-width: 230px;
+  padding: 10px 16px;
+}
+
+.servenear-logo-medium h1 {
+  font-size: 2.45rem;
+}
+
+.servenear-logo-medium p {
+  font-size: 0.62rem;
+}
+
+/* Welcome / onboarding page */
+
+.welcome-page {
+  min-height: 100vh;
+  background: #0f141a;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
+.welcome-image {
+  min-height: 58vh;
+  background:
+    linear-gradient(to bottom, rgba(15, 20, 26, 0.15), rgba(15, 20, 26, 0.65)),
+    url("https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=900&q=80");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.welcome-logo-card {
+  display: none;
+}
+
+.welcome-panel {
+  background: #0f141a;
+  border-radius: 34px 34px 0 0;
+  margin-top: -34px;
+  padding: 44px 36px 48px;
+  text-align: center;
+}
+
+.welcome-panel h1 {
+  color: white;
+  font-size: 1.65rem;
+  line-height: 1.25;
+  margin-bottom: 42px;
+}
+
+.welcome-actions {
+  display: grid;
+  gap: 24px;
+}
+
+.welcome-actions a,
+.welcome-actions .btn {
+  width: 100%;
+}
+
+.welcome-actions .btn {
+  border-radius: 8px;
+  padding: 15px 18px;
+  font-size: 1rem;
+  font-weight: 500;
+  background: #0d7df2;
+  color: white;
+}
+
+/* Auth screens */
+
+.auth-screen {
+  min-height: 100vh;
+  background: #0f141a;
+}
+
+.auth-blue-header {
+  min-height: 260px;
+  background: #0d7df2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 28px 24px 70px;
+}
+
+.auth-back-link {
+  position: absolute;
+  top: 34px;
+  left: 26px;
+  color: white;
+  font-size: 2rem;
+  line-height: 1;
+  font-weight: 300;
+}
+
+.auth-panel {
+  background: #0f141a;
+  border-radius: 34px 34px 0 0;
+  margin-top: -34px;
+  padding: 42px 42px 38px;
+  position: relative;
+  z-index: 2;
+}
+
+.auth-panel h1 {
+  color: white;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.auth-panel p {
+  text-align: center;
+  color: #a7adb7;
+}
+
+.auth-form {
+  display: grid;
+  gap: 22px;
+  margin-top: 34px;
+}
+
+.auth-form input,
+.auth-form select {
+  background: white;
+  color: #111827;
+  border: none;
+  border-radius: 8px;
+  padding: 15px 18px;
+  font-size: 1rem;
+}
+
+.auth-form input::placeholder {
+  color: #7b8190;
+}
+
+.auth-main-button {
+  margin-top: 44px;
+  border-radius: 8px;
+  padding: 15px 18px;
+  font-size: 1rem;
+  font-weight: 500;
+  background: #0d7df2;
+}
+
+.auth-switch-text {
+  margin-top: 26px;
+  font-size: 0.95rem;
+}
+
+.auth-switch-text a {
+  color: white;
+  font-weight: 800;
+}
+
+/* Desktop: keep auth/welcome looking like mobile preview */
+
+@media (min-width: 768px) {
+  .welcome-page,
+  .auth-screen {
+    max-width: 430px;
+    margin: 0 auto;
+    min-height: 100vh;
+  }
+
+  .welcome-image {
+    min-height: 58vh;
+  }
+
+  .auth-blue-header {
+    min-height: 260px;
   }
 }

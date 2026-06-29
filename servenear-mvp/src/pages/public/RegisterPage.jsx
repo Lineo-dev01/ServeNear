@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import ServeNearLogo from "../../components/ui/ServeNearLogo";
 import { getDashboardPath, registerMockUser } from "../../utils/authStorage";
 
 export default function RegisterPage() {
@@ -9,6 +10,7 @@ export default function RegisterPage() {
     fullName: "",
     email: "",
     password: "",
+    confirmPassword: "",
     role: "customer",
   });
 
@@ -43,8 +45,19 @@ export default function RegisterPage() {
       return;
     }
 
+    if (formData.password !== formData.confirmPassword) {
+      setError("Passwords do not match.");
+      return;
+    }
+
     try {
-      const newUser = registerMockUser(formData);
+      const newUser = registerMockUser({
+        fullName: formData.fullName,
+        email: formData.email,
+        password: formData.password,
+        role: formData.role,
+      });
+
       navigate(getDashboardPath(newUser.role));
     } catch (err) {
       setError(err.message);
@@ -52,63 +65,69 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="auth-page">
-      <h1>Create account</h1>
-      <p>Join ServeNear as a customer or service provider.</p>
+    <div className="auth-screen">
+      <header className="auth-blue-header">
+        <Link to="/" className="auth-back-link">
+          ←
+        </Link>
 
-      <form className="form" onSubmit={handleSubmit}>
-        <label>
-          Full name
+        <ServeNearLogo size="medium" />
+      </header>
+
+      <section className="auth-panel">
+        <h1>Sign Up</h1>
+        <p>Create your ServeNear account.</p>
+
+        <form className="auth-form" onSubmit={handleSubmit}>
           <input
             type="text"
             name="fullName"
-            placeholder="Enter your name"
+            placeholder="Full name"
             value={formData.fullName}
             onChange={handleChange}
           />
-        </label>
 
-        <label>
-          Email
           <input
             type="email"
             name="email"
-            placeholder="Enter your email"
+            placeholder="Email"
             value={formData.email}
             onChange={handleChange}
           />
-        </label>
 
-        <label>
-          Password
           <input
             type="password"
             name="password"
-            placeholder="Create a password"
+            placeholder="Password"
             value={formData.password}
             onChange={handleChange}
           />
-        </label>
 
-        <label>
-          I am a
+          <input
+            type="password"
+            name="confirmPassword"
+            placeholder="Confirm Password"
+            value={formData.confirmPassword}
+            onChange={handleChange}
+          />
+
           <select name="role" value={formData.role} onChange={handleChange}>
             <option value="customer">Customer</option>
             <option value="provider">Service Provider</option>
             <option value="admin">Admin Demo User</option>
           </select>
-        </label>
 
-        {error && <span className="form-error">{error}</span>}
+          {error && <span className="form-error">{error}</span>}
 
-        <button className="btn btn-primary" type="submit">
-          Create Account
-        </button>
-      </form>
+          <button className="btn btn-primary auth-main-button" type="submit">
+            Sign Up
+          </button>
+        </form>
 
-      <p>
-        Already have an account? <Link to="/login">Log in</Link>
-      </p>
+        <p className="auth-switch-text">
+          Already have an account? <Link to="/login">Log in</Link>
+        </p>
+      </section>
     </div>
   );
 }

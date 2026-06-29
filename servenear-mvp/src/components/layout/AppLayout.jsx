@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import BottomNav from "./BottomNav";
+import DemoBanner from "../demo/DemoBanner";
 import { getCurrentUser, logoutUser } from "../../utils/authStorage";
 
 export default function AppLayout({ children, userType = "customer" }) {
@@ -13,6 +14,8 @@ export default function AppLayout({ children, userType = "customer" }) {
 
   return (
     <div className="app-shell">
+      <DemoBanner />
+
       <header className="app-topbar">
         <div>
           <strong>ServeNear</strong>

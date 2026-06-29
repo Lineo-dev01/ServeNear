@@ -27,6 +27,7 @@ import AdminDashboard from "../pages/admin/AdminDashboard";
 import AdminUsers from "../pages/admin/AdminUsers";
 import AdminBookings from "../pages/admin/AdminBookings";
 import AdminVerification from "../pages/admin/AdminVerification";
+import AdminQA from "../pages/admin/AdminQA";
 
 export default function AppRoutes() {
   return (
@@ -209,6 +210,15 @@ export default function AppRoutes() {
         element={
           <ProtectedRoute allowedRole="admin">
             <AdminVerification />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/admin/qa"
+        element={
+          <ProtectedRoute allowedRole="admin">
+            <AdminQA />
           </ProtectedRoute>
         }
       />

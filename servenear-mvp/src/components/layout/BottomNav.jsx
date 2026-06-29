@@ -19,7 +19,7 @@ export default function BottomNav({ userType = "customer" }) {
     { label: "Home", path: "/admin/dashboard" },
     { label: "Users", path: "/admin/users" },
     { label: "Bookings", path: "/admin/bookings" },
-    { label: "Verify", path: "/admin/verification" },
+    { label: "QA", path: "/admin/qa" },
   ];
 
   let links = customerLinks;

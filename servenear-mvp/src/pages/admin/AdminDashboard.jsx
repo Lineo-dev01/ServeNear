@@ -110,6 +110,15 @@ export default function AdminDashboard() {
             <Button variant="secondary">Manage Verification</Button>
           </Link>
         </Card>
+
+        <Card>
+          <h2>MVP QA Checklist</h2>
+          <p>Check the demo flows, role protection and reset demo data.</p>
+
+          <Link to="/admin/qa">
+            <Button variant="secondary">Open QA Checklist</Button>
+          </Link>
+        </Card>
       </section>
     </AppLayout>
   );

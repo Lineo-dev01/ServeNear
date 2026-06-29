@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import ServeNearLogo from "../../components/ui/ServeNearLogo";
 import { getDashboardPath, loginMockUser } from "../../utils/authStorage";
 
 export default function LoginPage() {
@@ -45,43 +46,47 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="auth-page">
-      <h1>Log in</h1>
-      <p>Access your ServeNear account.</p>
+    <div className="auth-screen">
+      <header className="auth-blue-header">
+        <Link to="/" className="auth-back-link">
+          ←
+        </Link>
 
-      <form className="form" onSubmit={handleSubmit}>
-        <label>
-          Email
+        <ServeNearLogo size="medium" />
+      </header>
+
+      <section className="auth-panel">
+        <h1>Log In</h1>
+        <p>Welcome back to ServeNear.</p>
+
+        <form className="auth-form" onSubmit={handleSubmit}>
           <input
             type="email"
             name="email"
-            placeholder="Enter your email"
+            placeholder="Email"
             value={formData.email}
             onChange={handleChange}
           />
-        </label>
 
-        <label>
-          Password
           <input
             type="password"
             name="password"
-            placeholder="Enter your password"
+            placeholder="Password"
             value={formData.password}
             onChange={handleChange}
           />
-        </label>
 
-        {error && <span className="form-error">{error}</span>}
+          {error && <span className="form-error">{error}</span>}
 
-        <button className="btn btn-primary" type="submit">
-          Log In
-        </button>
-      </form>
+          <button className="btn btn-primary auth-main-button" type="submit">
+            Log In
+          </button>
+        </form>
 
-      <p>
-        New to ServeNear? <Link to="/register">Create an account</Link>
-      </p>
+        <p className="auth-switch-text">
+          Don’t have an account? <Link to="/register">Sign up</Link>
+        </p>
+      </section>
     </div>
   );
 }
