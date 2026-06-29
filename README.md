@@ -88,6 +88,7 @@ Supabase integration is planned as a future production step.
 ### 1. Install dependencies
 
 ```bash
+cd servenear-mvp
 npm install
 ```
 
